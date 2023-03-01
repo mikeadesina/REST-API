@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Lumen Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-4.16.0.js"></script>
+
+    <script src="../docs/js/theme-default-4.16.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                    <ul id="tocify-header-introduction" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="introduction">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="authenticating-requests">
+                    <a href="#authenticating-requests">Authenticating requests</a>
+                </li>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-articles">
+                                <a href="#endpoints-GETapi-articles">Return all articles</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-articles--id-">
+                                <a href="#endpoints-GETapi-articles--id-">GET api/articles/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-articles--id--like">
+                                <a href="#endpoints-POSTapi-articles--id--like">POST api/articles/{id}/like</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-articles--id--view">
+                                <a href="#endpoints-POSTapi-articles--id--view">POST api/articles/{id}/view</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-articles--id--comment">
+                                <a href="#endpoints-POSTapi-articles--id--comment">POST api/articles/{id}/comment</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+            </div>
+
+    <ul class="toc-footer" id="toc-footer">
+                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+    </ul>
+
+    <ul class="toc-footer" id="last-updated">
+        <li>Last updated: March 1, 2023</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<aside>
+    <strong>Base URL</strong>: <code>http://localhost</code>
+</aside>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-articles">Return all articles</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-articles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/articles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/articles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-articles">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;errors&quot;: null,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 20,
+                &quot;title&quot;: &quot;Ea dolor.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/009988?text=a&quot;,
+                &quot;short_description&quot;: &quot;Duchess, &#039;and that&#039;s why. Pig!&#039; She said the Footman, and began to tremble. Alice looked down at the...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;name&quot;: &quot;Quam.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 19,
+                &quot;title&quot;: &quot;Et.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/00ddaa?text=cumque&quot;,
+                &quot;short_description&quot;: &quot;Don&#039;t let me hear the rattle of the party were placed along the sea-shore--&#039; &#039;Two lines!&#039; cried the...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 8,
+                    &quot;name&quot;: &quot;Maxime.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 18,
+                &quot;title&quot;: &quot;Soluta.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/004455?text=delectus&quot;,
+                &quot;short_description&quot;: &quot;OURS they had a head unless there was no one listening, this time, as it was good practice to say &#039;D...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 7,
+                    &quot;name&quot;: &quot;Dolor.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 17,
+                &quot;title&quot;: &quot;Vel.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/001100?text=cumque&quot;,
+                &quot;short_description&quot;: &quot;I&#039;m a deal faster than it does.&#039; &#039;Which would NOT be an old conger-eel, that used to it in time,&#039; sa...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;Omnis.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 16,
+                &quot;title&quot;: &quot;Aut quia.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/0022aa?text=voluptatem&quot;,
+                &quot;short_description&quot;: &quot;Alice, very loudly and decidedly, and there was no label this time she had forgotten the little gold...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Dolor.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 15,
+                &quot;title&quot;: &quot;Eaque ea.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/005500?text=voluptas&quot;,
+                &quot;short_description&quot;: &quot;Mock Turtle went on, &#039;\&quot;--found it advisable to go among mad people,&#039; Alice remarked. &#039;Right, as usua...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 8,
+                    &quot;name&quot;: &quot;Maxime.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 14,
+                &quot;title&quot;: &quot;Ea iure.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/0055dd?text=sint&quot;,
+                &quot;short_description&quot;: &quot;March Hare. &#039;I didn&#039;t know that Cheshire cats always grinned; in fact, I didn&#039;t know that cats COULD...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;name&quot;: &quot;Quam.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 13,
+                &quot;title&quot;: &quot;Quia.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/003399?text=at&quot;,
+                &quot;short_description&quot;: &quot;Queen, and in another minute there was no &#039;One, two, three, and away,&#039; but they were all turning int...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 5,
+                    &quot;name&quot;: &quot;Quam.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 12,
+                &quot;title&quot;: &quot;Quos et.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/00ff33?text=mollitia&quot;,
+                &quot;short_description&quot;: &quot;March Hare: she thought there was a dead silence instantly, and Alice called after her. &#039;I&#039;ve someth...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 10,
+                    &quot;name&quot;: &quot;Eos.&quot;
+                }
+            },
+            {
+                &quot;id&quot;: 11,
+                &quot;title&quot;: &quot;Ut ad.&quot;,
+                &quot;cover&quot;: &quot;https://via.placeholder.com/150x150.png/009966?text=nulla&quot;,
+                &quot;short_description&quot;: &quot;No room!&#039; they cried out when they liked, so that by the English, who wanted leaders, and had come b...&quot;,
+                &quot;tags&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Dolor.&quot;
+                }
+            }
+        ],
+        &quot;first_page_url&quot;: &quot;http://localhost/api/articles?page=1&quot;,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 2,
+        &quot;last_page_url&quot;: &quot;http://localhost/api/articles?page=2&quot;,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/articles?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/articles?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/articles?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;next_page_url&quot;: &quot;http://localhost/api/articles?page=2&quot;,
+        &quot;path&quot;: &quot;http://localhost/api/articles&quot;,
+        &quot;per_page&quot;: 10,
+        &quot;prev_page_url&quot;: null,
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 20
+    },
+    &quot;message&quot;: &quot;All Articles&quot;,
+    &quot;status&quot;: &quot;success&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-articles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-articles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles"></code></pre>
+</span>
+<form id="form-GETapi-articles" data-method="GET"
+      data-path="api/articles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-articles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-articles"
+                    onclick="tryItOut('GETapi-articles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-articles"
+                    onclick="cancelTryOut('GETapi-articles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-articles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/articles</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="endpoints-GETapi-articles--id-">GET api/articles/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-articles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/articles/earum" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/articles/earum"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-articles--id-">
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;errors&quot;: &quot;No query results for model [App\\Models\\Articles] earum&quot;,
+    &quot;data&quot;: null,
+    &quot;message&quot;: &quot;An error occurred error&quot;,
+    &quot;status&quot;: &quot;error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-articles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-articles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-articles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles--id-"></code></pre>
+</span>
+<form id="form-GETapi-articles--id-" data-method="GET"
+      data-path="api/articles/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-articles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-articles--id-"
+                    onclick="tryItOut('GETapi-articles--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-articles--id-"
+                    onclick="cancelTryOut('GETapi-articles--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-articles--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/articles/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="GETapi-articles--id-"
+               value="earum"
+               data-component="url">
+    <br>
+<p>Example: <code>earum</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-articles--id--like">POST api/articles/{id}/like</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-articles--id--like">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/articles/et/like" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/articles/et/like"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-articles--id--like">
+</span>
+<span id="execution-results-POSTapi-articles--id--like" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-articles--id--like"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles--id--like" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-articles--id--like" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles--id--like"></code></pre>
+</span>
+<form id="form-POSTapi-articles--id--like" data-method="POST"
+      data-path="api/articles/{id}/like"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles--id--like', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-articles--id--like"
+                    onclick="tryItOut('POSTapi-articles--id--like');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-articles--id--like"
+                    onclick="cancelTryOut('POSTapi-articles--id--like');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-articles--id--like" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/articles/{id}/like</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-articles--id--like"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-articles--id--like"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-articles--id--like"
+               value="et"
+               data-component="url">
+    <br>
+<p>Example: <code>et</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-articles--id--view">POST api/articles/{id}/view</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-articles--id--view">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/articles/beatae/view" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/articles/beatae/view"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-articles--id--view">
+</span>
+<span id="execution-results-POSTapi-articles--id--view" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-articles--id--view"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles--id--view" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-articles--id--view" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles--id--view"></code></pre>
+</span>
+<form id="form-POSTapi-articles--id--view" data-method="POST"
+      data-path="api/articles/{id}/view"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles--id--view', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-articles--id--view"
+                    onclick="tryItOut('POSTapi-articles--id--view');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-articles--id--view"
+                    onclick="cancelTryOut('POSTapi-articles--id--view');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-articles--id--view" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/articles/{id}/view</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-articles--id--view"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-articles--id--view"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-articles--id--view"
+               value="beatae"
+               data-component="url">
+    <br>
+<p>Example: <code>beatae</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-articles--id--comment">POST api/articles/{id}/comment</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-articles--id--comment">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/articles/et/comment" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/articles/et/comment"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-articles--id--comment">
+</span>
+<span id="execution-results-POSTapi-articles--id--comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-articles--id--comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles--id--comment" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-articles--id--comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles--id--comment"></code></pre>
+</span>
+<form id="form-POSTapi-articles--id--comment" data-method="POST"
+      data-path="api/articles/{id}/comment"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles--id--comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-articles--id--comment"
+                    onclick="tryItOut('POSTapi-articles--id--comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-articles--id--comment"
+                    onclick="cancelTryOut('POSTapi-articles--id--comment');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-articles--id--comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/articles/{id}/comment</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-articles--id--comment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-articles--id--comment"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="POSTapi-articles--id--comment"
+               value="et"
+               data-component="url">
+    <br>
+<p>Example: <code>et</code></p>
+            </div>
+                    </form>
+
+            
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
